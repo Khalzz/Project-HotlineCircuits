@@ -163,6 +163,7 @@ public class RbMovement : MonoBehaviour
 
     private void StopCrouching()
     {
+        posicionPies.SetActive(true);
         crouchCounter = 1;
         pressingCrouch = false;
         itsSpeed = false;
@@ -171,7 +172,7 @@ public class RbMovement : MonoBehaviour
 
         // i have to do this because the player was clipping into the floor and falling out... fuck u unity
         this.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
-        posicionPies.SetActive(true);
+        
     }
 
     private void CameraAngles()
