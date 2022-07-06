@@ -40,10 +40,5 @@ public class Revolver : MonoBehaviour
 
             }
         }
-        else
-        {
-            print("Youve pounched nothing");
-        }
-
     }
 }

@@ -50,16 +50,16 @@ public class WeaponSpawner : MonoBehaviour
     {
         Transform gCamera = other.gameObject.transform.Find("GunCamera");
         Weapons wp = gCamera.gameObject.transform.Find("Guns").GetComponent<Weapons>();
-        if (weapons == WeaponList.Revolver && wp.haveRevolver == false) 
+        if (weapons == WeaponList.Revolver && wp.slot1 == false) 
         {
             wp.equipedWeapons += 1;
-            wp.haveRevolver = true;
+            wp.slot1 = true;
             wp.Slot1();
         }
-        else if (weapons == WeaponList.Shotgun && wp.haveShotgun == false) 
+        else if (weapons == WeaponList.Shotgun && wp.slot2 == false) 
         {
             wp.equipedWeapons += 1;
-            wp.haveShotgun = true;
+            wp.slot2 = true;
             wp.Slot2();
         }
         weapons = WeaponList.None;
