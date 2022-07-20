@@ -869,11 +869,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 3e5b4376-ac84-484d-883e-100069c176a7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Project Hotline-Circuits
+  organizationId: fearushb
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

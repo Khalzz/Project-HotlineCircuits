@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Cam : MonoBehaviour
+public class Cam : NetworkBehaviour // this used to be MonoBehaviour
 {
     [SerializeField] Transform cam;
     [SerializeField] Transform gunCam;
@@ -65,5 +66,8 @@ public class Cam : MonoBehaviour
         gunCam.Rotate(Vector3.up * camaraX); //rotacion de jugador en base a camara x
     }
 
-    
+    public override void OnNetworkSpawn() // if we dont do this the player movement will affect every instance of a player on the game
+    {
+        if (!IsOwner) Destroy(this);
+    }
 }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class WallRuning : MonoBehaviour
+public class WallRuning : NetworkBehaviour // this used to be MonoBehaviour
 {
     RbMovement player;
     public Transform orientation;
@@ -41,6 +42,11 @@ public class WallRuning : MonoBehaviour
     void Start()
     {
         rb = transform.parent.GetComponent<Rigidbody>();
+    }
+
+    public override void OnNetworkSpawn() // if we dont do this the player movement will affect every instance of a player on the game
+    {
+        if (!IsOwner) Destroy(this);
     }
 
     public bool CanWallRun()
