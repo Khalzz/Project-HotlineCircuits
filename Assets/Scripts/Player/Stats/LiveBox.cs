@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class LiveBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Rotate(new Vector3(0f,0f,100f)*Time.deltaTime);
@@ -19,7 +12,5 @@ public class LiveBox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
-        Stats playerStats = other.gameObject.GetComponent<Stats>();
-        playerStats.playerLife += 20;
     }
 }

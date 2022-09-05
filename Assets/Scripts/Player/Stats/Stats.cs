@@ -8,13 +8,12 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     public int playerLife;
-    public TextMeshPro lifeText;
-    public TextMeshPro SpeedText;
+    public GameObject lifeText;
 
     public Rigidbody player;
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         player = transform.GetComponent<Rigidbody>();
         playerLife = 100;
     }
@@ -22,8 +21,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpeedText.text = ((player.velocity.magnitude * 3.6).ToString("F0") + " Km/h");
-        lifeText.text = (playerLife.ToString() + "%");
+        lifeText.GetComponent<TextMeshProUGUI>().text = (playerLife.ToString() + "%");
         if (playerLife <= 0)
         {
             SceneManager.LoadScene(GameObject.Find("Player(Clone)").GetComponent<Restart>().sceneName);

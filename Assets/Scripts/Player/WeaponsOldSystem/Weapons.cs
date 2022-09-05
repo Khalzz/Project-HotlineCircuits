@@ -77,7 +77,6 @@ public class Weapons : MonoBehaviour
 
         Vector3 finalPosition = new Vector3(movementX, movementY, 0);
         transform.localPosition = Vector3.Lerp(transform.localPosition, finalPosition + initPosition, Time.deltaTime * smoothAmount);
-        ui.transform.localPosition = Vector3.Lerp(ui.transform.localPosition, finalPosition + initPosition, Time.deltaTime * smoothAmount);
         // gun movement by mouse
 
         if (Input.GetButtonDown("Gunslot1") && slot1) Slot1();
