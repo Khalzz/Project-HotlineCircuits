@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 
-public class RbMovement : NetworkBehaviour // this used to be MonoBehaviour
+public class RbMovement : MonoBehaviour // this used to be MonoBehaviour
 {
     public GameObject posicionPies;
     public GameObject crouchPosition;
@@ -89,11 +88,6 @@ public class RbMovement : NetworkBehaviour // this used to be MonoBehaviour
         Jumping();
 
         SpeedMultCalculations();
-    }
-
-    public override void OnNetworkSpawn() // if we dont do this the player movement will affect every instance of a player on the game
-    {
-        if (!IsOwner) Destroy(this);
     }
 
     private void FixedUpdate() // we move rigidbody here for the physics

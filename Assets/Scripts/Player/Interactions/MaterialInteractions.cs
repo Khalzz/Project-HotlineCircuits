@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode;
 
-public class MaterialInteractions : NetworkBehaviour // this used to be MonoBehaviour
+public class MaterialInteractions : MonoBehaviour // this used to be MonoBehaviour
 {
     RbMovement player;
 
@@ -68,10 +67,5 @@ public class MaterialInteractions : NetworkBehaviour // this used to be MonoBeha
         {
             burnt = 0;
         }
-    }
-
-    public override void OnNetworkSpawn() // if we dont do this the player movement will affect every instance of a player on the game
-    {
-        if (!IsOwner) Destroy(this);
     }
 }

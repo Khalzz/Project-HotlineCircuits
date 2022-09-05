@@ -8,16 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu/MainMenu.unity
     guid: e3c9733801fd4df4e876453696a75fc9
-  - enabled: 0
-    path: Assets/Scenes/Level_1.unity
-    guid: 638647522f11255458610e933055e8d0
-  - enabled: 1
-    path: Assets/Scenes/TutorialLevels/tutorial_movement.unity
-    guid: 24301ebce76aed0459f2f619b9a91c7e
   - enabled: 1
     path: Assets/Scenes/Others/Gym.unity
     guid: da7932819248a6c409e0b26ab25eb66e
-  - enabled: 1
-    path: Assets/Scenes/Multiplayer/Multiplayer.unity
-    guid: 71a5f26f8ce37f54fa7034cc0d8d2b11
   m_configObjects: {}
