@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Others/Gym.unity
     guid: da7932819248a6c409e0b26ab25eb66e
+  - enabled: 1
+    path: Assets/Scenes/Multiplayer/MultiplayerTesting.unity
+    guid: 6ca433233a5d33c4d898c2b3c8f01b37
   m_configObjects: {}

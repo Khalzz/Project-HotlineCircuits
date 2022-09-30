@@ -1,13 +1,10 @@
-/* 
-to do: 
-    2. Create the "low range attack"
-*/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
+using Unity.VisualScripting;
 
-public class Weapons : MonoBehaviour
+public class Weapons : NetworkBehaviour
 {
     // player and camera
     public Camera playerCam;
@@ -68,6 +65,20 @@ public class Weapons : MonoBehaviour
 
     void Update()
     {
+        if (!IsOwner)
+        {
+            gameObject.layer = 0;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.layer = 0;
+                foreach (Transform son in child)
+                {
+                    son.gameObject.layer = 0;
+                }
+            }
+            return;
+        }
+
         // gun movement by mouse
         float movementX = -Input.GetAxis("Mouse X") * amount;
         float movementY = -Input.GetAxis("Mouse Y") * amount;

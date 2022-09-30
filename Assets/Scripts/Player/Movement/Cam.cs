@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Cam : MonoBehaviour // this used to be MonoBehaviour
+public class Cam : NetworkBehaviour // this used to be MonoBehaviour
 {
     [SerializeField] Transform cam;
     [SerializeField] Transform gunCam;
@@ -28,6 +29,8 @@ public class Cam : MonoBehaviour // this used to be MonoBehaviour
 
     void Update()
     {
+        if (!IsOwner) Destroy(this.gameObject);
+
         player = transform.parent.parent.gameObject.GetComponent<RbMovement>();
 
         Debug.DrawRay(cam.transform.position, cam.transform.forward*100f, Color.magenta);

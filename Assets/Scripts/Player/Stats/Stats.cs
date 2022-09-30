@@ -21,7 +21,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifeText.GetComponent<TextMeshProUGUI>().text = (playerLife.ToString() + "%");
+        // lifeText.GetComponent<TextMeshProUGUI>().text = (playerLife.ToString() + "%");
         if (playerLife <= 0)
         {
             SceneManager.LoadScene(GameObject.Find("Player(Clone)").GetComponent<Restart>().sceneName);
