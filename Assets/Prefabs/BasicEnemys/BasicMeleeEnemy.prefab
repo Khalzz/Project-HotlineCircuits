@@ -124,7 +124,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  followRange: 20
+  followRange: 50
   attackRange: 2
   playerInFollowRange: 0
   playerInAttackRange: 0

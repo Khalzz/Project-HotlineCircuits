@@ -9,7 +9,7 @@ public class EnemyMisile : MonoBehaviour
 
     private void Start()
     {
-        stats = GameObject.Find("Player(Clone)").GetComponent<Stats>();
+        stats = GameObject.Find("Player(SP)").GetComponent<Stats>();
     }
 
     void OnCollisionEnter(Collision other)
@@ -18,8 +18,9 @@ public class EnemyMisile : MonoBehaviour
         {
             collided = true;
             stats.playerLife -= 25;
+            Destroy(gameObject);
         }
-        else if (other.gameObject.tag == "World")
+        else if (other.gameObject.tag == "World" || other.gameObject.tag == "Floor")
         {
             Destroy(gameObject);
         }

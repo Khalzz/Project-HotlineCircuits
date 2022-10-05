@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Netcode;
+using System;
 
 public class Stats : MonoBehaviour
 {
     public int playerLife;
     public GameObject lifeText;
+
+    public GameObject playerPrefab;
 
     public Rigidbody player;
     // Start is called before the first frame update
@@ -24,7 +28,14 @@ public class Stats : MonoBehaviour
         // lifeText.GetComponent<TextMeshProUGUI>().text = (playerLife.ToString() + "%");
         if (playerLife <= 0)
         {
-            SceneManager.LoadScene(GameObject.Find("Player(Clone)").GetComponent<Restart>().sceneName);
+            SceneManager.LoadScene(player.GetComponent<Restart>().sceneName);
+
+            /*
+            this.gameObject.GetComponent<NetworkObject>().Despawn();
+            GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+            newPlayer.transform.name = "Player(Clone)";
+            newPlayer.GetComponent<NetworkObject>().SpawnAsPlayerObject(OwnerClientId);
+            */
         }
     }
 
@@ -33,6 +44,4 @@ public class Stats : MonoBehaviour
         playerLife -= damage;
         print(playerLife);
     }
-
-
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-
     public Camera playerCam;
     public LayerMask playerBody;
     public Transform lastSelected;

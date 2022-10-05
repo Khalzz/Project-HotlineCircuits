@@ -27,6 +27,8 @@ public class BasicEnemyDistance : MonoBehaviour
     public GameObject enemyProyectile;
     public Transform shootPoint;
 
+    public int launchingForce;
+
     private void Awake()
     {
         haveAttacked = false;
@@ -43,7 +45,7 @@ public class BasicEnemyDistance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.Find("Player(Clone)").transform;
+        player = GameObject.Find("Player(SP)").transform;
         transform.LookAt(player);
         playerInFollowRange = Physics.CheckSphere(transform.position, followRange, playerLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, playerLayer);
@@ -55,13 +57,11 @@ public class BasicEnemyDistance : MonoBehaviour
             if (haveAttacked == false && timer >= 1f)
             {
                 Attacking();
-                print("its attacking");
             }
         }
         else if (dist > 15f && dist < 30f)
         {
             Following();
-            print("its following");
 
         }
 
@@ -81,7 +81,7 @@ public class BasicEnemyDistance : MonoBehaviour
         agent.SetDestination(gameObject.transform.position);
         haveAttacked = true;
         Rigidbody rb = Instantiate(enemyProyectile, shootPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 30f, ForceMode.Impulse);
+        rb.AddForce(transform.forward * launchingForce, ForceMode.Impulse);
         haveAttacked = false;
         timer = 0;
     }

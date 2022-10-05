@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
-public class RbMovement : NetworkBehaviour // this used to be MonoBehaviour
+public class RbMovement : MonoBehaviour // this used to be MonoBehaviour
 {
     public GameObject posicionPies;
     public GameObject crouchPosition;
@@ -69,7 +70,19 @@ public class RbMovement : NetworkBehaviour // this used to be MonoBehaviour
 
     private void Update()
     {
-        if (!IsOwner) return;
+        /*
+        if (!IsOwner) 
+        {
+            this.gameObject.tag = "OtherPlayer";
+            this.gameObject.layer = 0;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.layer = 0;
+                child.gameObject.tag = "OtherPlayer";
+            }
+            return;
+        }
+        */
 
         x = Input.GetAxisRaw("Horizontal"); //input horizontal (teclado y joystick)
         z = Input.GetAxisRaw("Vertical"); //input vertical (teclado y joystick)
@@ -95,7 +108,7 @@ public class RbMovement : NetworkBehaviour // this used to be MonoBehaviour
 
     private void FixedUpdate() // we move rigidbody here for the physics
     {
-        if (!IsOwner) return;
+        // if (!IsOwner) return;
 
         itsHit = Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), transform.up, out ceilingHit, 0.5f, ~player);
 

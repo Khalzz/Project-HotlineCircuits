@@ -4,7 +4,7 @@ using UnityEngine;
 using Unity.Netcode;
 using Unity.VisualScripting;
 
-public class Weapons : NetworkBehaviour
+public class Weapons : MonoBehaviour
 {
     // player and camera
     public Camera playerCam;
@@ -65,6 +65,7 @@ public class Weapons : NetworkBehaviour
 
     void Update()
     {
+        /*
         if (!IsOwner)
         {
             gameObject.layer = 0;
@@ -78,6 +79,7 @@ public class Weapons : NetworkBehaviour
             }
             return;
         }
+        */
 
         // gun movement by mouse
         float movementX = -Input.GetAxis("Mouse X") * amount;

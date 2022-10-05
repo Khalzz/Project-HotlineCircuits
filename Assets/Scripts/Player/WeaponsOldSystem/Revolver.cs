@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class Revolver : MonoBehaviour
+public class Revolver : NetworkBehaviour
 {
     public int recoilAmount;
     public float waitTimer;
@@ -19,6 +20,7 @@ public class Revolver : MonoBehaviour
         RaycastHit hit;
         bool itsHit = Physics.Raycast(playerCam.transform.position,playerCam.transform.forward, out hit, 1000f, ~playerBody);
         bool enemyHit = hit.transform.tag == "Enemy";
+        bool enemyPlayerHit = hit.transform.tag == "OtherPlayer";
 
         if (hit.transform.tag == "World")
         {
@@ -39,6 +41,11 @@ public class Revolver : MonoBehaviour
                 hit.collider.gameObject.GetComponent<TestingRangeEnemy>().life -= 10;
 
             }
+        }
+        else if (enemyPlayerHit)
+        {
+            hit.transform.GetComponent<Stats>().playerLife -= 10;
+
         }
     }
 }

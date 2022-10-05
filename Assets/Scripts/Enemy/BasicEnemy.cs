@@ -44,7 +44,7 @@ public class BasicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player = GameObject.Find("Player(Clone)");
+        player = GameObject.Find("Player(SP)");
         playerTransform = player.transform;
         playerStats = player.GetComponent<Stats>();
         playerInFollowRange = Physics.CheckSphere(transform.position, followRange, playerLayer);
